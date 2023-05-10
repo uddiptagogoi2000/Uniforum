@@ -1,12 +1,15 @@
-import { Container, Heading } from "@chakra-ui/react";
+import { Container, Heading, Box } from "@chakra-ui/react";
+import PromtBox from "../components/PromtBox";
+import Post from "../components/Post";
 
 const Homepage = () => {
   return (
-    <div as="section">
+    <Box as="section" py="10px">
       <Container>
-        <Heading>Welcome to Uniforum</Heading>
+        <PromtBox />
+        <Post />
       </Container>
-    </div>
+    </Box>
   );
 };
 

@@ -9,10 +9,20 @@ import {
   ButtonGroup,
   Button,
   IconButton,
+  InputLeftElement,
+  InputGroup,
+  Input,
 } from "@chakra-ui/react";
 
-import { EditIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, SearchIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
+import {
+  AnswerIcon,
+  FollowingIcon,
+  HomeIcon,
+  NotificationIcon,
+  SpacesIcon,
+} from "./Icons";
 
 const Navbar = () => {
   const styles = {
@@ -20,30 +30,103 @@ const Navbar = () => {
   };
 
   return (
-    <Flex as="nav" bg="white">
-      <Container maxW="6xl" mx="auto" display="flex" alignItems="center">
-        <Heading as="h1" fontWeight="medium" fontFamily="logo">
-          Uniforum
-        </Heading>
-        <List display="flex" gap="1rem" ml="2rem">
+    <Flex as="nav" bg="white" boxShadow="base">
+      <Container
+        maxW="6xl"
+        mx="auto"
+        display="flex"
+        alignItems="center"
+        py="6px"
+        gap="1.5rem"
+      >
+        <Link to="/">
+          <Heading
+            as="h1"
+            fontWeight="medium"
+            fontFamily="logo"
+            color="purple.700"
+            fontSize="2xl"
+          >
+            Uniforum
+          </Heading>
+        </Link>
+        <List display="flex" gap="1rem">
           <Link to="/">
-            <ListItem sx={styles}>Home</ListItem>
+            <ListItem>
+              <IconButton
+                display="flex"
+                alignItems="center"
+                variant="unstyled"
+                colorScheme="teal"
+                aria-label="Call Sage"
+                fontSize="30px"
+                icon={<HomeIcon />}
+              />
+            </ListItem>
           </Link>
           <Link to="/following">
-            <ListItem sx={styles}>Following</ListItem>
+            <ListItem>
+              <IconButton
+                display="flex"
+                alignItems="center"
+                variant="unstyled"
+                colorScheme="teal"
+                aria-label="Call Sage"
+                fontSize="30px"
+                icon={<FollowingIcon />}
+              />
+            </ListItem>
           </Link>
           <Link to="/answer">
-            <ListItem sx={styles}>Answer</ListItem>
+            <ListItem>
+              <IconButton
+                display="flex"
+                alignItems="center"
+                variant="unstyled"
+                colorScheme="teal"
+                aria-label="Call Sage"
+                fontSize="30px"
+                icon={<AnswerIcon />}
+              />
+            </ListItem>
           </Link>
           <Link to="/spaces">
-            <ListItem sx={styles}>Spaces</ListItem>
+            <ListItem>
+              <IconButton
+                display="flex"
+                alignItems="center"
+                variant="unstyled"
+                colorScheme="teal"
+                aria-label="Call Sage"
+                fontSize="30px"
+                icon={<SpacesIcon />}
+              />
+            </ListItem>
           </Link>
           <Link to="/notifications">
-            <ListItem sx={styles}>Notifications</ListItem>
+            <ListItem>
+              <IconButton
+                display="flex"
+                alignItems="center"
+                variant="unstyled"
+                colorScheme="teal"
+                aria-label="Call Sage"
+                fontSize="30px"
+                icon={<NotificationIcon />}
+              />
+            </ListItem>
           </Link>
         </List>
         <Spacer />
-        <Avatar size="sm" name="Aditya" mx="1rem" bg="gray.500" />
+
+        <InputGroup display="flex" alignItems="center">
+          <InputLeftElement>
+            <SearchIcon color="gray.600" />
+          </InputLeftElement>
+          <Input type="text" variant="outline" />
+        </InputGroup>
+
+        <Avatar size="sm" mx="1rem" bg="gray.500" />
         <ButtonGroup
           size="sm"
           isAttached
@@ -51,7 +134,9 @@ const Navbar = () => {
           borderRadius="2em"
           colorScheme="purple"
         >
-          <Button borderLeftRadius="2em">Add question</Button>
+          <Button borderLeftRadius="2em" fontWeight="normal">
+            Add question
+          </Button>
           <IconButton
             borderRightRadius="2em"
             aria-label="Add to friends"
