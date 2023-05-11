@@ -133,7 +133,7 @@ export const AskIcon = (props) => (
   </Icon>
 );
 
-export const PostLogo = (props) => (
+export const PostIcon = (props) => (
   <Icon viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g fill="none" fill-rule="evenodd">
       <path
@@ -148,6 +148,111 @@ export const PostLogo = (props) => (
         class="icon_svg-fill_as_stroke"
         fill="#666"
         d="m4.429 19.571 2.652-.884-1.768-1.768z"
+      ></path>
+    </g>
+  </Icon>
+);
+
+export const UpvoteIcon = (props) => (
+  <Icon viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M12 4 3 15h6v5h6v-5h6z"
+      class="icon_svg-stroke icon_svg-fill"
+      stroke-width="1.5"
+      stroke="#666"
+      stroke-linejoin="round"
+      fill="none"
+    ></path>
+  </Icon>
+);
+
+export const DownvoteIcon = (props) => (
+  <Icon viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="m12 20 9-11h-6V4H9v5H3z"
+      class="icon_svg-stroke icon_svg-fill"
+      stroke="#666"
+      fill="none"
+      stroke-width="1.5"
+      stroke-linejoin="round"
+    ></path>
+  </Icon>
+);
+
+export const CommentIcon = (props) => (
+  <Icon viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M12.071 18.86c4.103 0 7.429-3.102 7.429-6.93C19.5 8.103 16.174 5 12.071 5s-7.429 3.103-7.429 6.93c0 1.291.379 2.5 1.037 3.534.32.501-1.551 3.058-1.112 3.467.46.429 3.236-1.295 3.803-.99 1.09.585 2.354.92 3.701.92Z"
+      class="icon_svg-stroke icon_svg-fill"
+      stroke="#666"
+      stroke-width="1.5"
+      fill="none"
+    ></path>
+  </Icon>
+);
+
+export const ShareIcon = (props) => (
+  <Icon viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <g
+      class="icon_svg-stroke"
+      stroke="#666"
+      stroke-width="1.5"
+      fill="none"
+      fill-rule="evenodd"
+      stroke-linecap="round"
+    >
+      <path d="M19.748 10a8.003 8.003 0 0 0-15.496.002m.001 4.003a8.003 8.003 0 0 0 15.494 0"></path>
+      <path d="m2.5 7.697 1.197 3.289 3.289-1.197m14.5 6.5L20.289 13 17 14.197"></path>
+    </g>
+  </Icon>
+);
+
+export const FollowIcon = (props) => (
+  <Icon
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g
+      class="icon_svg-stroke"
+      stroke="#666"
+      stroke-width="1.5"
+      fill="none"
+      fill-rule="evenodd"
+      stroke-linecap="round"
+    >
+      <path d="M14.5 19c0-5.663-3.337-9-9-9m14 9c0-8.81-5.19-14-14-14"></path>
+      <circle cx="7.5" cy="17" r="2" class="icon_svg-fill"></circle>
+    </g>
+  </Icon>
+);
+
+export const PassIcon = (props) => (
+  <Icon
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g fill="none" fill-rule="evenodd">
+      <path
+        d="m11.828 9.314 3.9-3.9a2 2 0 1 1 2.828 2.829l-3.9 3.9m-3.535 3.535-2.464 2.464-4.241 1.416 1.412-4.244 2.465-2.465"
+        class="icon_svg-stroke"
+        stroke="#666"
+        stroke-width="1.5"
+        stroke-linecap="square"
+        stroke-linejoin="round"
+      ></path>
+      <path
+        class="icon_svg-fill_as_stroke"
+        fill="#666"
+        d="m4.414 19.556 2.652-.884-1.768-1.767z"
+      ></path>
+      <path
+        d="M4.636 5.636 18.5 19.5"
+        class="icon_svg-stroke"
+        stroke="#666"
+        stroke-width="1.5"
+        stroke-linecap="round"
       ></path>
     </g>
   </Icon>

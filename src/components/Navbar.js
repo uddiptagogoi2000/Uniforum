@@ -12,6 +12,13 @@ import {
   InputLeftElement,
   InputGroup,
   Input,
+  Tooltip,
+  Menu,
+  MenuGroup,
+  MenuItem,
+  MenuList,
+  MenuDivider,
+  MenuButton,
 } from "@chakra-ui/react";
 
 import { ChevronDownIcon, SearchIcon } from "@chakra-ui/icons";
@@ -21,6 +28,7 @@ import {
   FollowingIcon,
   HomeIcon,
   NotificationIcon,
+  PostIcon,
   SpacesIcon,
 } from "./Icons";
 
@@ -30,7 +38,7 @@ const Navbar = () => {
   };
 
   return (
-    <Flex as="nav" bg="white" boxShadow="base">
+    <Flex as="nav" bg="white" boxShadow="base" pos="fixed" w="100%" zIndex={1}>
       <Container
         maxW="6xl"
         mx="auto"
@@ -53,67 +61,77 @@ const Navbar = () => {
         <List display="flex" gap="1rem">
           <Link to="/">
             <ListItem>
-              <IconButton
-                display="flex"
-                alignItems="center"
-                variant="unstyled"
-                colorScheme="teal"
-                aria-label="Call Sage"
-                fontSize="30px"
-                icon={<HomeIcon />}
-              />
+              <Tooltip label="Home" borderRadius="3xl">
+                <IconButton
+                  display="flex"
+                  alignItems="center"
+                  variant="unstyled"
+                  colorScheme="teal"
+                  aria-label="Call Sage"
+                  fontSize="30px"
+                  icon={<HomeIcon />}
+                />
+              </Tooltip>
             </ListItem>
           </Link>
           <Link to="/following">
             <ListItem>
-              <IconButton
-                display="flex"
-                alignItems="center"
-                variant="unstyled"
-                colorScheme="teal"
-                aria-label="Call Sage"
-                fontSize="30px"
-                icon={<FollowingIcon />}
-              />
+              <Tooltip label="Following" borderRadius="3xl">
+                <IconButton
+                  display="flex"
+                  alignItems="center"
+                  variant="unstyled"
+                  colorScheme="teal"
+                  aria-label="Call Sage"
+                  fontSize="30px"
+                  icon={<FollowingIcon />}
+                />
+              </Tooltip>
             </ListItem>
           </Link>
           <Link to="/answer">
             <ListItem>
-              <IconButton
-                display="flex"
-                alignItems="center"
-                variant="unstyled"
-                colorScheme="teal"
-                aria-label="Call Sage"
-                fontSize="30px"
-                icon={<AnswerIcon />}
-              />
+              <Tooltip label="Answer" borderRadius="3xl">
+                <IconButton
+                  display="flex"
+                  alignItems="center"
+                  variant="unstyled"
+                  colorScheme="teal"
+                  aria-label="Call Sage"
+                  fontSize="30px"
+                  icon={<AnswerIcon />}
+                />
+              </Tooltip>
             </ListItem>
           </Link>
           <Link to="/spaces">
             <ListItem>
-              <IconButton
-                display="flex"
-                alignItems="center"
-                variant="unstyled"
-                colorScheme="teal"
-                aria-label="Call Sage"
-                fontSize="30px"
-                icon={<SpacesIcon />}
-              />
+              <Tooltip label="Spaces" borderRadius="3xl">
+                <IconButton
+                  display="flex"
+                  alignItems="center"
+                  variant="unstyled"
+                  colorScheme="teal"
+                  aria-label="Call Sage"
+                  fontSize="30px"
+                  icon={<SpacesIcon />}
+                />
+              </Tooltip>
             </ListItem>
           </Link>
           <Link to="/notifications">
             <ListItem>
-              <IconButton
-                display="flex"
-                alignItems="center"
-                variant="unstyled"
-                colorScheme="teal"
-                aria-label="Call Sage"
-                fontSize="30px"
-                icon={<NotificationIcon />}
-              />
+              <Tooltip label="Notifications" borderRadius="3xl">
+                <IconButton
+                  display="flex"
+                  alignItems="center"
+                  variant="unstyled"
+                  colorScheme="teal"
+                  aria-label="Call Sage"
+                  fontSize="30px"
+                  icon={<NotificationIcon />}
+                />
+              </Tooltip>
             </ListItem>
           </Link>
         </List>
@@ -126,7 +144,23 @@ const Navbar = () => {
           <Input type="text" variant="outline" />
         </InputGroup>
 
-        <Avatar size="sm" mx="1rem" bg="gray.500" />
+        <Menu>
+          <MenuButton as={Button} variant="unstyled">
+            <Avatar size="sm" mx="1rem" bg="gray.500" />
+          </MenuButton>
+          <MenuList>
+            <MenuGroup title="Profile">
+              <MenuItem>My Account</MenuItem>
+              <MenuItem>Payments </MenuItem>
+            </MenuGroup>
+            <MenuDivider />
+            <MenuGroup title="Help">
+              <MenuItem>Docs</MenuItem>
+              <MenuItem>FAQ</MenuItem>
+            </MenuGroup>
+          </MenuList>
+        </Menu>
+
         <ButtonGroup
           size="sm"
           isAttached
@@ -137,11 +171,21 @@ const Navbar = () => {
           <Button borderLeftRadius="2em" fontWeight="normal">
             Add question
           </Button>
-          <IconButton
-            borderRightRadius="2em"
-            aria-label="Add to friends"
-            icon={<ChevronDownIcon />}
-          />
+          <Menu>
+            <MenuButton borderRadius="none">
+              <IconButton
+                borderRadius="none"
+                borderRightRadius="2em"
+                aria-label="Add to friends"
+                icon={<ChevronDownIcon />}
+              />
+            </MenuButton>
+            <MenuList p="0">
+              <MenuItem>
+                <PostIcon fontSize="20px" /> Create post
+              </MenuItem>
+            </MenuList>
+          </Menu>
         </ButtonGroup>
       </Container>
     </Flex>

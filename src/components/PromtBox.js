@@ -1,5 +1,5 @@
 import { Avatar, Box, Button, Flex, IconButton, Input } from "@chakra-ui/react";
-import { AnswerIcon, AskIcon, PostLogo } from "./Icons";
+import { AnswerIcon, AskIcon, PostIcon } from "./Icons";
 
 const PromtBox = () => {
   return (
@@ -94,7 +94,7 @@ const PromtBox = () => {
             aria-label="Call Sage"
             fontSize="25px"
             padding="0"
-            icon={<PostLogo />}
+            icon={<PostIcon />}
           />
           Post
         </Button>
