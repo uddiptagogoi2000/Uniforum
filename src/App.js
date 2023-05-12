@@ -1,11 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import RootLayout from "./layouts/RootLayout";
+
 import Homepage from "./pages/Homepage";
 import FollowingPage from "./pages/FollowingPage";
 import SpacesPage from "./pages/SpacesPage";
 import NotificationPage from "./pages/NotificationPage";
 import AnswerPage from "./pages/AnswerPage";
+import LoginPage from "./pages/LoginPage";
 
 const router = createBrowserRouter([
   {
@@ -18,20 +20,20 @@ const router = createBrowserRouter([
       },
       {
         path: "following",
-        element: <FollowingPage />
+        element: <FollowingPage />,
       },
       {
         path: "answer",
-        element: <AnswerPage />
+        element: <AnswerPage />,
       },
       {
         path: "spaces",
-        element: <SpacesPage />
+        element: <SpacesPage />,
       },
       {
         path: "notifications",
-        element: <NotificationPage />
-      }
+        element: <NotificationPage />,
+      },
     ],
   },
 ]);

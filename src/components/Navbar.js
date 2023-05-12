@@ -52,7 +52,7 @@ const Navbar = () => {
             as="h1"
             fontWeight="medium"
             fontFamily="logo"
-            color="purple.700"
+            color="#2f439b"
             fontSize="2xl"
           >
             Uniforum
@@ -166,9 +166,15 @@ const Navbar = () => {
           isAttached
           variant="solid"
           borderRadius="2em"
-          colorScheme="purple"
+          bgColor="blue.700"
         >
-          <Button borderLeftRadius="2em" fontWeight="normal">
+          <Button
+            borderLeftRadius="2em"
+            fontWeight="normal"
+            bg="#2f439b"
+            color="white"
+            _hover={{ bg: "#2f439b" }}
+          >
             Add question
           </Button>
           <Menu>
@@ -177,7 +183,8 @@ const Navbar = () => {
                 borderRadius="none"
                 borderRightRadius="2em"
                 aria-label="Add to friends"
-                icon={<ChevronDownIcon />}
+                bg="#2f439b"
+                icon={<ChevronDownIcon color="white" />}
               />
             </MenuButton>
             <MenuList p="0">
