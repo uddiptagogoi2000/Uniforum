@@ -152,3 +152,69 @@ export const PostLogo = (props) => (
     </g>
   </Icon>
 );
+
+export const ForwardIcon = (props) => (
+  <Icon viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="m21 12-9.778-8v5.333c-1.926.45-3.5 1.172-4.722 2.167-1.222.995-2.389 2.495-3.5 4.5 1.333-.659 2.833-1.157 4.5-1.496 1.667-.34 2.908-.285 3.722.163V20L21 12Z"
+      class="icon_svg-stroke"
+      stroke="#666"
+      fill="none"
+      stroke-width="1.5"
+      stroke-linejoin="round"
+    ></path>
+  </Icon>
+);
+
+export const PencilIcon = (props) => (
+  <Icon viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M18.571 5.429h0a2 2 0 0 1 0 2.828l-9.9 9.9-4.24 1.416 1.412-4.245 9.9-9.9a2 2 0 0 1 2.828 0Z"
+      class="icon_svg-stroke"
+      stroke="#666"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+  </Icon>
+);
+
+export const WorkIcon = (props) => (
+  <Icon viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M20.5 11v7a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-7m6.906 4H5.625C4.451 15 3.5 13.977 3.5 12.714V7h17v5.714c0 1.263-.951 2.286-2.125 2.286h-4.781M9 7V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1m-4 6.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5Z"
+      class="icon_svg-stroke"
+      stroke="#666"
+      stroke-width="1.5"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+  </Icon>
+);
+
+export const CollegeIcon = (props) => (
+  <Icon viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M2.5 9.5 12 5l9.5 4.5L12 14 2.5 9.5Zm17.5 1v6M6.5 12v3c0 1.505 2.502 3 5.5 3s5.5-1.501 5.5-3v-3m2.5 4.5L18 20h4l-2-3.5Z"
+      class="icon_svg-stroke"
+      stroke="#666"
+      stroke-width="1.5"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+  </Icon>
+);
+export const LocationIcon = (props) => (
+  <Icon viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 7.73c4.637-4.23 7-7.83 7-10.53C19 6.224 15.866 3 12 3s-7 3.224-7 7.2c0 2.7 2.362 6.21 7 10.53h0Z"
+      class="icon_svg-stroke"
+      stroke="#666"
+      stroke-width="1.5"
+      fill="none"
+      stroke-linecap="round"
+    ></path>
+  </Icon>
+);

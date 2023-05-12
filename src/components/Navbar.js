@@ -125,8 +125,9 @@ const Navbar = () => {
           </InputLeftElement>
           <Input type="text" variant="outline" />
         </InputGroup>
-
-        <Avatar size="sm" mx="1rem" bg="gray.500" />
+        <Link to="/Profile">
+          <Avatar size="sm" mx="1rem" bg="gray.500" />
+        </Link>
         <ButtonGroup
           size="sm"
           isAttached

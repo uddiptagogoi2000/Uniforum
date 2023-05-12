@@ -6,6 +6,8 @@ import FollowingPage from "./pages/FollowingPage";
 import SpacesPage from "./pages/SpacesPage";
 import NotificationPage from "./pages/NotificationPage";
 import AnswerPage from "./pages/AnswerPage";
+import ProfilePage from "./pages/ProfilePage";
+
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "notifications",
         element: <NotificationPage />
+      },      
+      {
+        path: "profile",
+        element: <ProfilePage />
       }
     ],
   },
