@@ -32,7 +32,7 @@ import {
   SpacesIcon,
 } from "./Icons";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   const styles = {
     letterSpacing: "1px",
   };
@@ -146,7 +146,7 @@ const Navbar = () => {
 
         <Menu>
           <MenuButton as={Button} variant="unstyled">
-            <Avatar size="sm" mx="1rem" bg="gray.500" />
+            <Avatar size="sm" mx="1rem" bg="gray.500" name={user.name} />
           </MenuButton>
           <MenuList>
             <MenuGroup title="Profile">

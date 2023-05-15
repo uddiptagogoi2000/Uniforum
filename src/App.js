@@ -9,6 +9,8 @@ import NotificationPage from "./pages/NotificationPage";
 import AnswerPage from "./pages/AnswerPage";
 import LoginPage from "./pages/LoginPage";
 
+const isLogin = true;
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
         element: <NotificationPage />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
   },
 ]);
 

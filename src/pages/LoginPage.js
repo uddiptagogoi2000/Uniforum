@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { Box, Card, Container, Divider, Heading, Text } from "@chakra-ui/react";
 import LoginForm from "../components/LoginForm";
-import RootLayout from "../layouts/RootLayout";
 
 const LoginPage = () => {
   return (
@@ -36,7 +34,7 @@ const LoginPage = () => {
           </Heading>
           <Divider color="gray.400" my="15px" width="50%" />
           <Box>
-            <LoginForm setIsLogin={setIsLogin} />
+            <LoginForm />
           </Box>
         </Card>
       </Container>
