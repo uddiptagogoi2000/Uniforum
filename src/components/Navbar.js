@@ -1,3 +1,7 @@
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logout, reset } from "../features/auth/authSlice";
+
 import {
   Container,
   Flex,
@@ -32,7 +36,18 @@ import {
   SpacesIcon,
 } from "./Icons";
 
-const Navbar = ({ user }) => {
+const Navbar = () => {
+  const { user } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate("/");
+  };
+
   const styles = {
     letterSpacing: "1px",
   };
@@ -146,7 +161,12 @@ const Navbar = ({ user }) => {
 
         <Menu>
           <MenuButton as={Button} variant="unstyled">
-            <Avatar size="sm" mx="1rem" bg="gray.500" name={user.name} />
+            <Avatar
+              size="sm"
+              mx="1rem"
+              bg="gray.500"
+              name={user ? user.name : null}
+            />
           </MenuButton>
           <MenuList>
             <MenuGroup title="Profile">
@@ -156,7 +176,7 @@ const Navbar = ({ user }) => {
             <MenuDivider />
             <MenuGroup title="Help">
               <MenuItem>Docs</MenuItem>
-              <MenuItem>FAQ</MenuItem>
+              <MenuItem onClick={onLogout}>Logout</MenuItem>
             </MenuGroup>
           </MenuList>
         </Menu>

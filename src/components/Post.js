@@ -17,11 +17,15 @@ import {
   Button,
   IconButton,
 } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 
 import { SmallCloseIcon } from "@chakra-ui/icons";
 import { CommentIcon, DownvoteIcon, ShareIcon, UpvoteIcon } from "./Icons";
+import { useSelector } from "react-redux";
 
 const Post = () => {
+  const { user } = useSelector((state) => state.auth);
+
   return (
     <Card maxW="lg" my="8px">
       <CardHeader>

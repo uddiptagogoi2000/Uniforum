@@ -1,78 +1,33 @@
 import { Box, Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { reset, login } from "../features/auth/authSlice";
+import { useEffect } from "react";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   const formData = new FormData(e.target);
+  const { user, isLoading, isSuccess, isError, message } = useSelector(
+    (state) => state.auth
+  );
 
-  //   fetch("http://localhost:8000/token/", {
-  //     method: "POST",
-  //     headers: { "content-type": "application/json" },
-  //     body: JSON.stringify({
-  //       email: formData.get("email"),
-  //       password: formData.get("password"),
-  //     }),
-  //   })
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((token) => {
-  //       localStorage.setItem("access-token", token.access);
-  //       localStorage.setItem("refresh-token", token.refresh);
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
+    }
 
-  //       return fetch("http://localhost:8000/user/get-user/", {
-  //         method: "GET",
-  //         headers: {
-  //           Authorization: `Bearer ${localStorage.getItem("access-token")}`,
-  //         },
-  //       });
-  //     })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       navigate("/");
-  //     })
-  //     .catch((error) => console.log(error));
-  // }
+    if (isSuccess || user) {
+      navigate("/");
+    }
+
+    dispatch(reset());
+  }, [isError, isSuccess, user, message, navigate, dispatch]);
 
   async function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
-    try {
-      const { access, refresh } = await getToken(formData);
-      const user = await getUser(access);
-      user.access = access;
-      user.refresh = refresh;
-      localStorage.setItem("user", JSON.stringify(user));
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async function getToken(formData) {
-    const response = await fetch("http://localhost:8000/token/", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        email: formData.get("email"),
-        password: formData.get("password"),
-      }),
-    });
-    return response.json();
-  }
-
-  async function getUser(accessToken) {
-    const response = await fetch("http://localhost:8000/user/get-user/", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-    return response.json();
+    dispatch(login(formData));
   }
 
   return (
@@ -99,7 +54,7 @@ const LoginForm = () => {
           type="submit"
           _hover={{ bg: "#2f439b" }}
         >
-          Login
+          {isLoading ? "loading..." : "Login"}
         </Button>
       </Box>
     </form>
