@@ -9,12 +9,12 @@ import {
 } from "@chakra-ui/react";
 import { AnswerIcon, FollowIcon, PassIcon } from "./Icons";
 
-const QuestionCard = () => {
+const QuestionCard = ({ question }) => {
   return (
     <Card py="0.5rem">
       <CardHeader py="0.5rem">
         <Heading fontSize="lg" _hover={{ textDecoration: "underline" }}>
-          Is it possible to find a gold mine for free?
+          {question}
         </Heading>
       </CardHeader>
       <CardBody py="0" color="gray.500" fontSize="sm">

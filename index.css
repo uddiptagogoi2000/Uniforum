@@ -1,3 +1,12 @@
 body {
   background-color: #eee !important;
 }
+
+.post-body > p {
+  padding: 10px 20px;
+}
+
+.post-body img {
+  margin: auto;
+  object-fit: cover !important;
+}

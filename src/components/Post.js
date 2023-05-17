@@ -22,8 +22,17 @@ import { useSelector } from "react-redux";
 import { SmallCloseIcon } from "@chakra-ui/icons";
 import { CommentIcon, DownvoteIcon, ShareIcon, UpvoteIcon } from "./Icons";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-const Post = () => {
+const Post = ({
+  title,
+  body,
+  userName,
+  userImage,
+  upvoteCount,
+  views,
+  slug,
+}) => {
   const { user } = useSelector((state) => state.auth);
 
   return (
@@ -31,9 +40,9 @@ const Post = () => {
       <CardHeader>
         <Flex position="relative">
           <Flex flex="1" gap="4">
-            <Avatar name="Aditya Singh" />
+            <Avatar name="Aditya Singh" src={userImage} />
             <Box>
-              <Heading size="sm">Aditya Singh</Heading>
+              <Heading size="sm">{userName}</Heading>
               <Text>Tezpur University</Text>
             </Box>
           </Flex>
@@ -52,12 +61,22 @@ const Post = () => {
         </Flex>
       </CardHeader>
       <Box px="20px" py="0">
-        <Heading as="h3" fontSize="md">
-          Why Chakra UI is amazing?
-        </Heading>
+        <Link to={`/question/${slug}`}>
+          <Heading
+            as="h3"
+            fontSize="md"
+            _hover={{ textDecoration: "underline" }}
+          >
+            {title}
+          </Heading>
+        </Link>
       </Box>
-      <CardBody p="0">
-        <Text p="20px">
+      <CardBody
+        p="0"
+        dangerouslySetInnerHTML={{ __html: body }}
+        className="post-body"
+      >
+        {/* <Text p="20px">
           With Chakra UI, I wanted to sync the speed of development with the
           speed of design. I wanted the developer to be just as excited as the
           designer to create a screen.
@@ -67,7 +86,7 @@ const Post = () => {
           maxW={{ base: "100%", sm: "100%" }}
           src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
           alt="Caffe Latte"
-        />
+        /> */}
       </CardBody>
       <UnorderedList
         m="0"
@@ -80,8 +99,8 @@ const Post = () => {
         px="20px"
         letterSpacing="0.5px"
       >
-        <ListItem>249.4K views</ListItem>
-        <ListItem>View 1,086 upvotes</ListItem>
+        <ListItem>{views} views</ListItem>
+        <ListItem>View {upvoteCount} upvotes</ListItem>
         <ListItem>View 23 shares</ListItem>
       </UnorderedList>
       <CardFooter py="10px">

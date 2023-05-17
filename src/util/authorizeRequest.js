@@ -22,13 +22,12 @@ export const refreshToken = async (refresh) => {
   return response.json();
 };
 
-const isObjectEmpty = (obj) => {
+export const isObjectEmpty = (obj) => {
   return JSON.stringify(obj) === "{}";
 };
 
 const authorizeRequest = async () => {
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user);
 
   const obj = await verifyToken(user.access);
 

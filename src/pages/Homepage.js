@@ -67,8 +67,9 @@ const Homepage = () => {
           </>
         ) : (
           <>
-            <Post />
-            <Post />
+            {posts.map((post) => {
+              return <Post {...post} />;
+            })}
             <Card>
               <CardHeader py="10px">
                 <Text>Questions for you</Text>

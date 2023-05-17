@@ -8,6 +8,7 @@ import SpacesPage from "./pages/SpacesPage";
 import NotificationPage from "./pages/NotificationPage";
 import AnswerPage from "./pages/AnswerPage";
 import LoginPage from "./pages/LoginPage";
+import QuestionPage from "./pages/QuestionPage";
 
 const isLogin = true;
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Homepage />,
+      },
+      {
+        path: "question/:slug",
+        element: <QuestionPage />,
       },
       {
         path: "following",
