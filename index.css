@@ -2,7 +2,8 @@ body {
   background-color: #eee !important;
 }
 
-.post-body > p {
+.post-body > *,
+.post-body:not(img) {
   padding: 10px 20px;
 }
 

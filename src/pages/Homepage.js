@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getPosts, reset } from "../features/posts/postSlice";
 
 import {
   Container,
@@ -17,15 +16,19 @@ import Post from "../components/Post";
 import QuestionCard from "../components/QuestionCard";
 import { useEffect } from "react";
 
+import { getAnswers } from "../features/answers/answerSlice";
+import { authorize } from "../features/auth/authSlice";
+
 const Homepage = () => {
   const dispatch = useDispatch();
 
-  const { posts, isLoading, isSuccess, isError, message } = useSelector(
-    (state) => state.posts
+  const { answers, isLoading, isSuccess, isError, message } = useSelector(
+    (state) => state.answers
   );
 
   useEffect(() => {
-    dispatch(getPosts());
+    dispatch(authorize());
+    dispatch(getAnswers());
   }, [dispatch]);
 
   return (
@@ -67,8 +70,15 @@ const Homepage = () => {
           </>
         ) : (
           <>
-            {posts.map((post) => {
-              return <Post {...post} />;
+            {answers?.map((answer) => {
+              return (
+                <Post
+                  key={answer.id}
+                  id={answer.id}
+                  {...answer}
+                  getAnswers={getAnswers}
+                />
+              );
             })}
             <Card>
               <CardHeader py="10px">

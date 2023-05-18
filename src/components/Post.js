@@ -16,15 +16,21 @@ import {
   ButtonGroup,
   Button,
   IconButton,
+  useSafeLayoutEffect,
 } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { upvoteAnswer } from "../features/answers/answerSlice";
 
 import { SmallCloseIcon } from "@chakra-ui/icons";
 import { CommentIcon, DownvoteIcon, ShareIcon, UpvoteIcon } from "./Icons";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import { authorize } from "../features/auth/authSlice";
+import { getQuestion } from "../features/question/questionSlice";
+
 const Post = ({
+  id,
   title,
   body,
   userName,
@@ -32,8 +38,36 @@ const Post = ({
   upvoteCount,
   views,
   slug,
+  getQuestion,
+  token,
+  getAnswers,
 }) => {
   const { user } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+
+  const onUpvoteClick = () => {
+    const fetchData = async () => {
+      await dispatch(authorize());
+      await dispatch(upvoteAnswer(id));
+      if (getQuestion) {
+        await dispatch(getQuestion(slug, token));
+      } else if (getAnswers) {
+        await dispatch(getAnswers());
+      }
+    };
+
+    fetchData();
+  };
+
+  const onDownvoteClick = () => {
+    const fetchData = async () => {
+      await dispatch(authorize());
+      await dispatch(downvote(id));
+    };
+
+    fetchData();
+  };
 
   return (
     <Card maxW="lg" my="8px">
@@ -60,17 +94,19 @@ const Post = ({
           </Tooltip>
         </Flex>
       </CardHeader>
-      <Box px="20px" py="0">
-        <Link to={`/question/${slug}`}>
-          <Heading
-            as="h3"
-            fontSize="md"
-            _hover={{ textDecoration: "underline" }}
-          >
-            {title}
-          </Heading>
-        </Link>
-      </Box>
+      {title ? (
+        <Box px="20px" py="0">
+          <Link to={`/question/${slug}`}>
+            <Heading
+              as="h3"
+              fontSize="md"
+              _hover={{ textDecoration: "underline" }}
+            >
+              {title}
+            </Heading>
+          </Link>
+        </Box>
+      ) : null}
       <CardBody
         p="0"
         dangerouslySetInnerHTML={{ __html: body }}
@@ -111,15 +147,12 @@ const Post = ({
           borderRadius="2em"
           colorScheme="gray"
         >
-          <Button borderLeftRadius="2em" fontWeight="normal">
-            <IconButton
-              borderRightRadius="2em"
-              aria-label="Upvote"
-              fontSize="20px"
-              bg="inherit"
-              _hover={{ bg: "inherit" }}
-              icon={<UpvoteIcon />}
-            />
+          <Button
+            borderLeftRadius="2em"
+            fontWeight="normal"
+            onClick={onUpvoteClick}
+          >
+            <UpvoteIcon fontSize="20px" mr="5px" />
             Upvote
           </Button>
           <IconButton
@@ -127,6 +160,7 @@ const Post = ({
             aria-label="Downvote"
             fontSize="20px"
             icon={<DownvoteIcon />}
+            onClick={onDownvoteClick}
           />
         </ButtonGroup>
         <Button

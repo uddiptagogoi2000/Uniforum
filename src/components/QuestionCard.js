@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { AnswerIcon, FollowIcon, PassIcon } from "./Icons";
 
-const QuestionCard = ({ question }) => {
+const QuestionCard = ({ question, answers }) => {
   return (
     <Card py="0.5rem">
       <CardHeader py="0.5rem">
@@ -18,7 +18,11 @@ const QuestionCard = ({ question }) => {
         </Heading>
       </CardHeader>
       <CardBody py="0" color="gray.500" fontSize="sm">
-        <Text fontWeight="bold">No answer yet</Text>
+        <Text fontWeight="bold">
+          {answers?.length === 0
+            ? "No answer yet"
+            : `${answers?.length} answers`}
+        </Text>
       </CardBody>
       <CardFooter py="0" gap="30px">
         <Button variant="outline" borderRadius="2em" fontWeight="medium">
